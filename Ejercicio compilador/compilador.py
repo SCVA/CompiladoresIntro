@@ -31,12 +31,25 @@ def analisis(lista):
             
             
     print(error)
+           
+ def analisisSintactico(lista): 
+    print "Analisis Sintactico:"
+    expresion1 = lista[0]
+    print expresion1
+    if (expresion1[0] == '*') or (expresion1[0] == '/') or (expresion1[0]== '+') or (expresion1[0] == '-'):
+       print "Analisis Sintactico: incorrecto, No puede iniciar con un operador"
+    if(expresion1[len(expresion1)-1] != '='):
+        print "Analisis Sintactico: incorrecto, No hay operaador de igualdad"
+ 
+    
         
 
 a=open("datos.txt",'r')
 listaG= [y.split() for y in [x.strip('\n') for x in a.readlines()]]
 
 analisis(listaG)
+analisisSintactico(listaG)
+
 
 
 
