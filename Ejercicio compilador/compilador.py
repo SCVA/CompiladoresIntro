@@ -32,16 +32,30 @@ def analisis(lista):
             
     print(error)
            
- def analisisSintactico(lista): 
+def analisisSintactico(lista): 
     print "Analisis Sintactico:"
-    expresion1 = lista[0]
-    print expresion1
-    if (expresion1[0] == '*') or (expresion1[0] == '/') or (expresion1[0]== '+') or (expresion1[0] == '-'):
-       print "Analisis Sintactico: incorrecto, No puede iniciar con un operador"
-    if(expresion1[len(expresion1)-1] != '='):
-        print "Analisis Sintactico: incorrecto, No hay operaador de igualdad"
- 
+    a=len(lista)
+    cont=0
+    op=0
     
+    while a>0:
+        expresion=lista[cont]
+        print expresion
+        op=0; 
+        if (expresion[0] == '*') or (expresion[0] == '/') or (expresion[0]== '+') or (expresion[0] == '-'):
+            print "Analisis Sintactico: incorrecto, No puede iniciar con un operador"
+        if(expresion[len(expresion)-1] != '='):
+            print "Analisis Sintactico: incorrecto, No hay operaador de igualdad"
+        for x in expresion:
+            if (x== '*') or (x == '/') or (x== '+') or (x == '-'):
+                op=op+1
+            #quiero contar la cantidad de digitos y variables que hayan para verificar que la diferencia entre digitos y operadores sea 1
+            #pero ya no alcanzo por hoy:v
+        if(op==0):
+            print "Analisis Sintactico: incorreco, No hay operadores"  
+                      
+        a=a-1
+        cont=cont+1
         
 
 a=open("datos.txt",'r')
