@@ -46,7 +46,7 @@ def analisis(lista):
                         elif((ch.isalpha)and (not(ch.isdigit())) and (not(esOperador(diccionario,ch)))):
                             if(ch==x[len(x)-2]):
                                 pila.desapilar()
-                                if(len(pila.items)>2):
+                                if(len(pila.items)>1):
                                     error.append("Error no hay operador")
                                 else:
                                     variables[ch]=pila.desapilar()
